@@ -1084,8 +1084,8 @@
     "name": "Pattern: Felcloth Hood",
     "slot": "Head",
     "quality": "uncommon",
-    "dungeon": "Onyxia's Lair",
-    "boss": "Onyxia"
+    "dungeon": "Crafting",
+    "boss": "Tailoring"
   },
   "11086": {
     "id": 11086,
@@ -3869,7 +3869,7 @@
     "slot": "Waist",
     "quality": "rare",
     "dungeon": "Scholomance",
-    "boss": null
+    "boss": "Ras Frostwhisper"
   },
   "18842": {
     "id": 18842,
@@ -5885,7 +5885,7 @@
     "slot": "Shoulder",
     "quality": "rare",
     "dungeon": "Scholomance",
-    "boss": null
+    "boss": "Multiple"
   },
   "16682": {
     "id": 16682,
@@ -6247,14 +6247,6 @@
     "dungeon": "Onyxia's Lair",
     "boss": "Onyxia"
   },
-  "22310": {
-    "id": 22310,
-    "name": "Truefaith Vestments",
-    "slot": null,
-    "quality": "common",
-    "dungeon": "Tailoring",
-    "boss": null
-  },
   "19874": {
     "id": 19874,
     "name": "Halberd of Smiting",
@@ -6453,7 +6445,7 @@
     "slot": "Feet",
     "quality": "rare",
     "dungeon": "Blackrock Depths",
-    "boss": null
+    "boss": "High Priestess of Thaurissan"
   },
   "19888": {
     "id": 19888,
@@ -6893,7 +6885,7 @@
     "slot": "Legs",
     "quality": "rare",
     "dungeon": "Scholomance",
-    "boss": null
+    "boss": "Lord Alexei Barov"
   },
   "21599": {
     "id": 21599,
@@ -10045,7 +10037,7 @@
     "slot": "Head",
     "quality": "rare",
     "dungeon": "Blackrock Depths",
-    "boss": null
+    "boss": "Phalanx"
   },
   "11634": {
     "id": 11634,
@@ -10277,7 +10269,7 @@
     "slot": "Wrist",
     "quality": "rare",
     "dungeon": "Scholomance",
-    "boss": null
+    "boss": "Kirtonos the Herald"
   },
   "18702": {
     "id": 18702,
@@ -12672,5 +12664,201 @@
     "quality": "rare",
     "dungeon": "Quest",
     "boss": "In Dreams"
+  },
+  "13142": {
+    "name": "Brigam Girdle",
+    "slot": "Waist",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "General Drakkisath"
+  },
+  "12952": {
+    "name": "Gyth's Skull",
+    "slot": "Head",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "Gyth"
+  },
+  "16733": {
+    "name": "Spaulders of Valor",
+    "slot": "Shoulder",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "Warchief Rend Blackhand"
+  },
+  "16730": {
+    "name": "Breastplate of Valor",
+    "slot": "Chest",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "General Drakkisath"
+  },
+  "16735": {
+    "name": "Bracers of Valor",
+    "slot": "Wrist",
+    "quality": "rare",
+    "dungeon": "Blackrock Spire",
+    "boss": "BoE"
+  },
+  "13963": {
+    "name": "Voone's Vice Grips",
+    "slot": "Hands",
+    "quality": "rare",
+    "dungeon": "Quest",
+    "boss": "Maxwell's Mission"
+  },
+  "16732": {
+    "name": "Legplates of Valor",
+    "slot": "Legs",
+    "quality": "rare",
+    "dungeon": "Stratholme",
+    "boss": "Baron Rivendare"
+  },
+  "12935": {
+    "name": "Warmaster Legguards",
+    "slot": "Legs",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "Warchief Rend Blackhand"
+  },
+  "17774": {
+    "name": "Mark of the Chosen",
+    "slot": "Trinket",
+    "quality": "uncommon",
+    "dungeon": "Quest",
+    "boss": "The Pariah's Instructions"
+  },
+  "12602": {
+    "name": "Draconian Deflector",
+    "slot": "Shield",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "General Drakkisath"
+  },
+  "13871": {
+    "name": "Frostweave Pants",
+    "slot": "Legs",
+    "quality": "uncommon",
+    "dungeon": "Crafting",
+    "boss": "Tailoring"
+  },
+  "13870": {
+    "name": "Frostweave Gloves",
+    "slot": "Hands",
+    "quality": "uncommon",
+    "dungeon": "Crafting",
+    "boss": "Tailoring"
+  },
+  "18102": {
+    "name": "Dragonrider Boots",
+    "slot": "Feet",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "Warchief Rend Blackhand"
+  },
+  "12082": {
+    "name": "Wyrmhide Spaulders",
+    "slot": "Shoulder",
+    "quality": "uncommon",
+    "dungeon": "Quest",
+    "boss": "A Taste of Flame"
+  },
+  "15085": {
+    "name": "Wicked Leather Armor",
+    "slot": "Chest",
+    "quality": "uncommon",
+    "dungeon": "Crafting",
+    "boss": "Leatherworking"
+  },
+  "14111": {
+    "name": "Felcloth Hood",
+    "slot": "Head",
+    "quality": "uncommon",
+    "dungeon": "Crafting",
+    "boss": "Tailoring"
+  },
+  "14112": {
+    "name": "Felcloth Shoulders",
+    "slot": "Shoulder",
+    "quality": "uncommon",
+    "dungeon": "Crafting",
+    "boss": "Tailoring"
+  },
+  "14153": {
+    "name": "Robe of the Void",
+    "slot": "Chest",
+    "quality": "epic",
+    "dungeon": "Crafting",
+    "boss": "Tailoring"
+  },
+  "22342": {
+    "name": "Leggings of Torment",
+    "slot": "Legs",
+    "quality": "rare",
+    "dungeon": "Blackrock Spire",
+    "boss": "Lord Valthalak"
+  },
+  "1980": {
+    "name": "Underworld Band",
+    "slot": "Finger",
+    "quality": "epic",
+    "dungeon": "World Drop",
+    "boss": "BoE"
+  },
+  "18103": {
+    "name": "Band of Rumination",
+    "slot": "Finger",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "Warchief Rend Blackhand"
+  },
+  "13102": {
+    "name": "Cassandra's Grace",
+    "slot": "Head",
+    "quality": "rare",
+    "dungeon": "World Drop",
+    "boss": "BoE"
+  },
+  "15061": {
+    "name": "Living Shoulders",
+    "slot": "Shoulder",
+    "quality": "rare",
+    "dungeon": "Crafting",
+    "boss": "Leatherworking"
+  },
+  "14553": {
+    "name": "Sash of Mercy",
+    "slot": "Waist",
+    "quality": "epic",
+    "dungeon": "World Drop",
+    "boss": "BoE"
+  },
+  "16710": {
+    "name": "Shadowcraft Bracers",
+    "slot": "Wrist",
+    "quality": "rare",
+    "dungeon": "Scholomance",
+    "boss": "BoE"
+  },
+  "2246": {
+    "name": "Myrmidon's Signet",
+    "slot": "Finger",
+    "quality": "epic",
+    "dungeon": "World Drop",
+    "boss": "BoE"
+  },
+  "18456": {
+    "name": "Truefaith Vestments",
+    "slot": "Chest",
+    "quality": "epic",
+    "dungeon": "Crafting",
+    "boss": "Tailoring"
+  },
+  "16697": {
+    "name": "Devout Bracers",
+    "slot": "Wrist",
+    "quality": "rare",
+    "dungeon": "Stratholme",
+    "boss": "BoE"
   }
 }
