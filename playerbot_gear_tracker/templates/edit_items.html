@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Edit Items</h1>
+
+<!-- Add New Item -->
+<div style="margin-bottom:30px;">
+  <h2>Add New Item</h2>
+  <form id="add-item-form">
+    <label>ID</label>
+    <input id="add-id" type="number">
+
+    <label>Name</label>
+    <input id="add-name" type="text">
+
+    <label>Slot</label>
+    <select id="add-slot">
+      <option value="">-- Select Slot --</option>
+      <option value="Head">Head</option>
+      <option value="Neck">Neck</option>
+      <option value="Shoulder">Shoulder</option>
+      <option value="Back">Back</option>
+      <option value="Chest">Chest</option>
+      <option value="Wrist">Wrist</option>
+      <option value="Hands">Hands</option>
+      <option value="Waist">Waist</option>
+      <option value="Legs">Legs</option>
+      <option value="Feet">Feet</option>
+      <option value="Finger">Finger</option>
+      <option value="Trinket">Trinket</option>
+      <option value="Main Hand">Main Hand</option>
+      <option value="Off Hand">Off Hand</option>
+      <option value="Two-Hand">Two-Hand</option>
+      <option value="Ranged">Ranged</option>
+      <option value="Shield">Shield</option>
+    </select>
+
+    <label>Quality</label>
+    <select id="add-quality">
+      <option value="">-- Select Quality --</option>
+      <option value="common">Common</option>
+      <option value="uncommon">Uncommon</option>
+      <option value="rare">Rare</option>
+      <option value="epic">Epic</option>
+      <option value="legendary">Legendary</option>
+    </select>
+
+    <label>Dungeon</label>
+    <input id="add-dungeon" type="text">
+
+    <label>Boss</label>
+    <input id="add-boss" type="text">
+
+    <button type="button" id="add-item-btn">Add Item</button>
+  </form>
+</div>
+
+<hr>
+
+<!-- Search Items -->
+<div style="margin-bottom:20px;">
+  <h2>Search Items</h2>
+  <input id="item-search" type="text" placeholder="Search items..." autocomplete="off"
+         style="width:100%; padding:8px;">
+
+  <div id="search-results" style="margin-top:10px;"></div>
+</div>
+
+<hr>
+
+<!-- Edit Item Card -->
+<div id="item-card" style="display:none; margin-top:20px;">
+  <h2>Edit Item</h2>
+  <form id="edit-item-form">
+    <label>ID</label>
+    <input id="edit-id" type="text" readonly>
+
+    <label>Name</label>
+    <input id="edit-name" type="text">
+
+    <label>Slot</label>
+    <select id="edit-slot">
+      <option value="">-- Select Slot --</option>
+      <option value="Head">Head</option>
+      <option value="Neck">Neck</option>
+      <option value="Shoulder">Shoulder</option>
+      <option value="Back">Back</option>
+      <option value="Chest">Chest</option>
+      <option value="Wrist">Wrist</option>
+      <option value="Hands">Hands</option>
+      <option value="Waist">Waist</option>
+      <option value="Legs">Legs</option>
+      <option value="Feet">Feet</option>
+      <option value="Finger">Finger</option>
+      <option value="Trinket">Trinket</option>
+      <option value="Main Hand">Main Hand</option>
+      <option value="Off Hand">Off Hand</option>
+      <option value="Two-Hand">Two-Hand</option>
+      <option value="Ranged">Ranged</option>
+      <option value="Shield">Shield</option>
+    </select>
+
+    <label>Quality</label>
+    <select id="edit-quality">
+      <option value="">-- Select Quality --</option>
+      <option value="common">Common</option>
+      <option value="uncommon">Uncommon</option>
+      <option value="rare">Rare</option>
+      <option value="epic">Epic</option>
+      <option value="legendary">Legendary</option>
+    </select>
+
+    <label>Dungeon</label>
+    <input id="edit-dungeon" type="text">
+
+    <label>Boss</label>
+    <input id="edit-boss" type="text">
+
+    <button type="button" id="save-edit">Save Changes</button>
+    <button type="button" id="delete-item" style="color:red;">Delete Item</button>
+  </form>
+</div>
+
+<script>
+const searchInput = document.getElementById('item-search');
+const resultsList = document.getElementById('search-results');
+const itemCard = document.getElementById('item-card');
+
+const editId = document.getElementById('edit-id');
+const editName = document.getElementById('edit-name');
+const editSlot = document.getElementById('edit-slot');
+const editQuality = document.getElementById('edit-quality');
+const editDungeon = document.getElementById('edit-dungeon');
+const editBoss = document.getElementById('edit-boss');
+
+let currentItemId = null;
+
+// Search UI
+searchInput.addEventListener('input', async () => {
+  const q = searchInput.value.trim();
+  resultsList.innerHTML = '';
+  itemCard.style.display = 'none';
+  currentItemId = null;
+
+  if (!q) return;
+
+  const res = await fetch(`/items/search?q=${encodeURIComponent(q)}`);
+  const items = await res.json();
+
+  items.forEach(item => {
+    const div = document.createElement('div');
+    div.style.padding = "6px 0";
+
+    div.innerHTML = `
+      <span class="q-${item.quality}">${item.name}</span>
+      (${item.slot})
+      <button data-id="${item.id}" style="margin-left:10px;">Edit</button>
+    `;
+
+    div.querySelector("button").addEventListener("click", () => loadItem(item.id));
+
+    resultsList.appendChild(div);
+  });
+});
+
+// Load item into edit card
+async function loadItem(id) {
+  const res = await fetch(`/items/${id}`);
+  const item = await res.json();
+  if (item.error) {
+    alert(item.error);
+    return;
+  }
+
+  currentItemId = item.id;
+  editId.value = item.id;
+  editName.value = item.name || '';
+  editSlot.value = item.slot || '';
+  editQuality.value = item.quality || '';
+  editDungeon.value = item.dungeon || '';
+  editBoss.value = item.boss || '';
+
+  itemCard.style.display = 'block';
+}
+
+// Save edits
+document.getElementById('save-edit').addEventListener('click', async () => {
+  if (!currentItemId) return;
+
+  const payload = {
+    name: editName.value,
+    slot: editSlot.value,
+    quality: editQuality.value,
+    dungeon: editDungeon.value,
+    boss: editBoss.value
+  };
+
+  const res = await fetch(`/items/${currentItemId}/edit`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  });
+
+  const data = await res.json();
+  alert(data.error || 'Item updated.');
+});
+
+// Delete item
+document.getElementById('delete-item').addEventListener('click', async () => {
+  if (!currentItemId) return;
+  if (!confirm('Delete this item?')) return;
+
+  const res = await fetch(`/items/${currentItemId}/delete`, { method: 'POST' });
+  const data = await res.json();
+
+  alert(data.error || 'Item deleted.');
+  itemCard.style.display = 'none';
+  currentItemId = null;
+  resultsList.innerHTML = '';
+});
+
+// Add new item
+document.getElementById('add-item-btn').addEventListener('click', async () => {
+  const payload = {
+    id: document.getElementById('add-id').value,
+    name: document.getElementById('add-name').value,
+    slot: document.getElementById('add-slot').value,
+    quality: document.getElementById('add-quality').value,
+    dungeon: document.getElementById('add-dungeon').value,
+    boss: document.getElementById('add-boss').value
+  };
+
+  const res = await fetch('/items/add', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  });
+
+  const data = await res.json();
+  alert(data.error || 'Item added.');
+  document.getElementById('add-item-form').reset();
+});
+</script>
+
+{% endblock %}

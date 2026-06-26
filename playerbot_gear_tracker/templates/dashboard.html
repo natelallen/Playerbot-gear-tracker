@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Dashboard</h1>
+
+<h2>Dungeons by Needed Drops</h2>
+
+<input 
+    type="text" 
+    id="dashboard-search" 
+    placeholder="Search characters, dungeons, items..." 
+    class="search-bar">
+
+{% for d in dungeons %}
+<div class="dungeon-block">
+
+  <h3 class="dungeon-header" data-target="dungeon-{{ loop.index }}">
+      <span class="arrow">▼</span>
+      <span class="dungeon-name">{{ d.dungeon }}</span>
+      <span class="dungeon-drops">{{ d.needed }} drops</span>
+  </h3>
+
+  <div id="dungeon-{{ loop.index }}" class="dungeon-body">
+    {% for c in d.chars.values() %}
+      <div class="char-row" data-class="{{ c.class | lower }}">
+
+        <div class="char-header">
+            <div class="char-left">
+                <strong class="class-{{ c.class | lower }}">{{ c.char_name }}</strong>
+                <span class="account">({{ c.account_name }})</span>
+                <span class="needed">{{ c.loot|length }} needed</span>
+            </div>
+        </div>
+
+        <div class="loot-list">
+          {% for item in c.loot %}
+            • <span class="q-{{ item.quality }}">{{ item.item_name }}</span>
+              <span class="boss">({{ item.boss_name }})</span><br>
+          {% endfor %}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endfor %}
+
+<script>
+// Collapse/expand
+document.querySelectorAll('.dungeon-header').forEach(header => {
+    header.addEventListener('click', () => {
+        const targetId = header.getAttribute('data-target');
+        const body = document.getElementById(targetId);
+        body.classList.toggle('collapsed');
+        header.classList.toggle('collapsed');
+    });
+});
+</script>
+
+<script>
+// Search filter
+document.getElementById('dashboard-search').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+
+    document.querySelectorAll('.dungeon-block').forEach(block => {
+        const dungeonName = block.querySelector('.dungeon-header .dungeon-name').textContent.toLowerCase();
+
+        let match = dungeonName.includes(query);
+
+        block.querySelectorAll('.char-row').forEach(charRow => {
+            const charText = charRow.textContent.toLowerCase();
+            const charClass = charRow.getAttribute('data-class'); 
+
+            const charMatch =
+                charText.includes(query) ||
+                (charClass && charClass.includes(query)); 
+
+            charRow.style.display = charMatch ? '' : 'none';
+
+            if (charMatch) match = true;
+        });
+
+        block.style.display = match ? '' : 'none';
+    });
+});
+</script>
+
+{% endblock %}

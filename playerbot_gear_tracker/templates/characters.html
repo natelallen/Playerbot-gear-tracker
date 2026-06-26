@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Characters</h1>
+
+<a href="{{ url_for('characters.add_character') }}" class="btn">Add Character</a>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Account</th>
+    <th>Class</th>
+    <th>Spec</th>
+    <th>Delete</th>
+  </tr>
+
+  {% for c in characters %}
+  <tr>
+    <td>
+      <a href="{{ url_for('characters.character_detail', char_id=c.id) }}">
+        <span class="class-{{ c.class|lower }}">{{ c.name }}</span>
+      </a>
+    </td>
+
+    <td>{{ c.account_name }}</td>
+
+    <td>
+      <span class="class-{{ c.class|lower }}">{{ c.class }}</span>
+    </td>
+
+    <td>{{ c.spec }}</td>
+
+    <td>
+      <form method="post" action="{{ url_for('characters.delete_character', char_id=c.id) }}" style="display:inline;">
+        <button type="submit" onclick="return confirm('Delete this character?')">🗑️</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

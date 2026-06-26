@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ dungeon }}</h1>
+
+<table>
+  <tr>
+    <th>Character</th>
+    <th>Account</th>
+    <th>Slot</th>
+    <th>Item</th>
+    <th>Boss</th>
+  </tr>
+
+  {% for r in rows %}
+  <tr>
+      <td><span class="class-{{ r.class|lower }}">{{ r.char_name }}</span></td>
+      <td>{{ r.account_name }}</td>
+      <td>{{ r.slot }}</td>
+
+      <td class="q-{{ r.quality }}">{{ r.item_name }}</td>
+
+      <td>{{ r.boss }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

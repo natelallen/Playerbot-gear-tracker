@@ -1,0 +1,239 @@
+/* Global */
+
+body {
+    background-color: #1b1b1b;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #4aa3ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #82c7ff;
+}
+
+/* Nav bar */
+
+nav {
+    background-color: #242424;
+    padding: 12px;
+    border-bottom: 1px solid #333;
+}
+
+nav a {
+    color: #ddd;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* Card layout */
+
+.card, .dungeon-card {
+    background-color: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    padding: 14px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+}
+
+.card h3, .dungeon-card h3 {
+    margin-top: 0;
+    color: #fff;
+}
+
+/* Item list */
+
+.item-line {
+    color: #ccc;
+    margin-left: 12px;
+}
+
+/* Class colors */
+
+.class-warrior { color: #C79C6E; }
+.class-mage { color: #69CCF0; }
+.class-rogue { color: #FFF569; }
+.class-druid { color: #FF7D0A; }
+.class-hunter { color: #ABD473; }
+.class-priest { color: #FFFFFF; text-shadow: 0 0 3px #000; }
+.class-shaman { color: #0070DE; }
+.class-warlock { color: #9482C9; }
+.class-paladin { color: #F58CBA; }
+
+[class^="class-"] {
+    font-weight: 600;
+}
+
+[class^="class-"]:hover {
+    text-shadow: 0 0 6px currentColor;
+}
+
+/* Item quality colors */
+
+.q-poor { color: #9d9d9d; }
+.q-common { color: #ffffff; }
+.q-uncommon { color: #1eff00; }
+.q-rare { color: #0070dd; }
+.q-epic { color: #a335ee; }
+.q-legendary { color: #ff8000; }
+
+/* Tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #262626;
+}
+
+/* Dungeon container */
+
+.dungeon-block {
+    border: 1px solid #333;
+    background: #1a1a1a;
+    padding: 0;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Dungeon header */
+
+.dungeon-header {
+    cursor: pointer;
+    padding: 10px 12px;
+    margin: 0;
+    background: #222;
+    border-bottom: 1px solid #333;
+    user-select: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dungeon-header:hover {
+    background: #2a2a2a;
+}
+
+.dungeon-header .dungeon-name {
+    margin-left: 6px;
+}
+
+.dungeon-header .dungeon-drops {
+    margin-left: auto;
+    color: #ccc;
+}
+
+/* Arrow indicator */
+
+.dungeon-header .arrow {
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.25s ease;
+}
+
+.dungeon-header.collapsed .arrow {
+    transform: rotate(-90deg);
+}
+
+/* Collapsible body */
+
+.dungeon-body {
+    overflow: hidden;
+    transition: max-height 0.25s ease-out;
+    max-height: 2000px;
+    padding: 10px 12px;
+}
+
+.dungeon-body.collapsed {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Character row */
+
+.char-row {
+    padding: 6px 0;
+}
+
+.char-row + .char-row {
+    border-top: 1px solid #2a2a2a;
+}
+
+/* Character header row */
+
+.char-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.char-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.char-header .account {
+    color: #777;
+}
+
+.char-header .needed {
+    color: #ccc;
+    font-size: 13px;
+}
+
+/* Loot list */
+
+.loot-list {
+    margin-left: 20px;
+    margin-top: 4px;
+    color: #ccc;
+}
+
+.loot-list .boss {
+    color: #777;
+}
+
+/* Search bar */
+
+.search-bar {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background: #222;
+    color: #eee;
+    font-size: 16px;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #4aa3ff;
+    background: #262626;
+}

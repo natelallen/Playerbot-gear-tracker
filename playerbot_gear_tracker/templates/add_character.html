@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Add Character</h1>
+
+<form method="post">
+
+    <label>Account</label>
+    <select name="account_id" required>
+        {% for a in accounts %}
+            <option value="{{ a['id'] }}">{{ a['name'] }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Character Name</label>
+    <input type="text" name="name" required>
+
+    <label>Class</label>
+    <select name="class" required>
+        <option>Warrior</option>
+        <option>Mage</option>
+        <option>Rogue</option>
+        <option>Druid</option>
+        <option>Hunter</option>
+        <option>Priest</option>
+        <option>Shaman</option>
+        <option>Warlock</option>
+        <option>Paladin</option>
+    </select>
+
+    <label>Spec</label>
+    <input type="text" name="spec">
+
+    <button type="submit">Add Character</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Manage Accounts</h1>
+
+<h3>Add Account</h3>
+<form method="post" action="{{ url_for('accounts.add_account') }}">
+    <input type="text" name="name" placeholder="Account name" required>
+    <button type="submit">Add</button>
+</form>
+
+<h3>Existing Accounts</h3>
+<ul>
+    {% for a in accounts %}
+        <li>
+            {{ a['name'] }}
+            <form method="post" action="{{ url_for('accounts.delete_account', account_id=a['id']) }}" style="display:inline;">
+                <button onclick="return confirm('Delete this account? This will delete all characters under it.')">🗑️</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

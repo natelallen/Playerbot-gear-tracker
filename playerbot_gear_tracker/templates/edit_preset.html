@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Edit Preset: {{ preset["name"] }}</h1>
+
+<!-- Search bar -->
+<input type="text" id="item-search" placeholder="Search items..." style="width:100%; padding:8px; margin-bottom:15px;">
+
+<!-- Search results -->
+<div id="search-results"></div>
+
+<hr>
+
+<h2>Items in this preset</h2>
+
+<ul>
+{% for item in items %}
+    <li>
+        <span class="q-{{ item.quality }}">{{ item.name }}</span>
+        ({{ item.slot }}) — {{ item.dungeon }} / {{ item.boss }}
+
+        <form action="{{ url_for('presets.delete_preset_item', pid=item.pid) }}" method="POST" style="display:inline;">
+            <button type="submit">Remove</button>
+        </form>
+    </li>
+{% endfor %}
+</ul>
+
+<script>
+// Live search
+document.getElementById("item-search").addEventListener("input", function() {
+    const q = this.value;
+
+    fetch("/items/search?q=" + encodeURIComponent(q))
+        .then(r => r.json())
+        .then(results => {
+            const container = document.getElementById("search-results");
+            container.innerHTML = "";
+
+            results.forEach(item => {
+                const div = document.createElement("div");
+                div.style.padding = "6px 0";
+
+                div.innerHTML = `
+                    <span class="q-${item.quality}">${item.name}</span>
+                    (${item.slot})
+                    <form action="/presets/{{ preset['id'] }}/add_item" method="POST" style="display:inline;">
+                        <input type="hidden" name="item_id" value="${item.id}">
+                        <button type="submit">Add</button>
+                    </form>
+                `;
+
+                container.appendChild(div);
+            });
+        });
+});
+</script>
+
+{% endblock %}

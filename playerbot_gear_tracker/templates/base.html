@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <title>GearTracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    nav a { margin-right: 15px; font-weight: bold; }
+    table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 6px 8px; }
+    form { margin-top: 10px; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="{{ url_for('dashboard.dashboard') }}">Dashboard</a>
+  <a href="{{ url_for('accounts.manage_accounts') }}">Accounts</a>
+  <a href="{{ url_for('characters.characters') }}">Characters</a>
+  <a href="{{ url_for('presets.presets') }}">Presets</a>
+  <a href="{{ url_for('items.edit_items') }}">Edit Items</a>
+</nav>
+
+<hr>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>
