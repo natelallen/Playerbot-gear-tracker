@@ -15,14 +15,31 @@
 
 <ul>
 {% for item in items %}
-    <li>
+    <li style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+
         <span class="q-{{ item.quality }}">{{ item.name }}</span>
         ({{ item.slot }}) — {{ item.dungeon }} / {{ item.boss }}
 
-        <form action="{{ url_for('presets.delete_preset_item', pid=item.pid) }}" method="POST" style="display:inline;">
-            <button type="submit">Remove</button>
+        {% if item.preset_note %}
+            <span><strong>Note:</strong> {{ item.preset_note }}</span>
+        {% endif %}
+
+        <!-- Edit preset note -->
+        <form action="{{ url_for('presets.update_preset_note', preset_item_id=item.pid) }}"
+            method="POST" style="display:inline;">
+            <input type="hidden" name="preset_id" value="{{ preset.id }}">
+            <input type="text" name="note" value="{{ item.preset_note or '' }}"
+                placeholder="Add note..." style="width:200px;">
+            <button type="submit" title="Save" style="font-weight:bold;">💾</button>
+        </form>
+
+        <!-- Remove item -->
+        <form action="{{ url_for('presets.delete_preset_item', pid=item.pid) }}"
+            method="POST" style="display:inline;">
+            <button type="submit" class="icon-button" title="Remove">❌</button>
         </form>
     </li>
+
 {% endfor %}
 </ul>
 

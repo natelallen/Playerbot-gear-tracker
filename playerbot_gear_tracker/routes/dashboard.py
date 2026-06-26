@@ -14,6 +14,7 @@ def dashboard():
         SELECT wishlist.character_id,
                wishlist.item_id,
                wishlist.acquired,
+               wishlist.note, 
                characters.name AS char_name,
                characters.class AS class,
                accounts.name AS account_name
@@ -57,7 +58,8 @@ def dashboard():
         dungeon_map[dungeon]["chars"][char_key]["loot"].append({
             "item_name": item.get("name"),
             "boss_name": boss,
-            "quality": item.get("quality")
+            "quality": item.get("quality"),
+            "note": row["note"]
         })
 
     # Convert dict → list and sort by needed desc

@@ -33,10 +33,18 @@
         </div>
 
         <div class="loot-list">
-          {% for item in c.loot %}
+        {% for item in c.loot %}
             • <span class="q-{{ item.quality }}">{{ item.item_name }}</span>
-              <span class="boss">({{ item.boss_name }})</span><br>
-          {% endfor %}
+            <span class="boss">({{ item.boss_name }})</span>
+
+            {% if item.note %}
+                <span style="color:#666; margin-left:6px;">
+                - Note: {{ item.note }}
+                </span>
+            {% endif %}
+
+            <br>
+        {% endfor %}
         </div>
 
       </div>

@@ -30,9 +30,14 @@
 
     <td>{{ c.spec }}</td>
 
-    <td>
-      <form method="post" action="{{ url_for('characters.delete_character', char_id=c.id) }}" style="display:inline;">
-        <button type="submit" onclick="return confirm('Delete this character?')">🗑️</button>
+    <td style="text-align:center;">
+      <form method="post"
+            action="{{ url_for('characters.delete_character', char_id=c.id) }}"
+            style="display:inline;">
+        <button type="submit"
+                class="icon-button"
+                title="Delete Character"
+                onclick="return confirm('Delete this character?')">❌</button>
       </form>
     </td>
   </tr>

@@ -14,8 +14,11 @@
     {% for a in accounts %}
         <li>
             {{ a['name'] }}
-            <form method="post" action="{{ url_for('accounts.delete_account', account_id=a['id']) }}" style="display:inline;">
-                <button onclick="return confirm('Delete this account? This will delete all characters under it.')">🗑️</button>
+
+            <form method="post"
+                  action="{{ url_for('accounts.delete_account', account_id=a['id']) }}"
+                  style="display:inline;">
+                <button type="submit" class="icon-button" title="Delete Account">❌</button>
             </form>
         </li>
     {% endfor %}

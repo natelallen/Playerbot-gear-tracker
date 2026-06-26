@@ -20,6 +20,7 @@ CREATE TABLE wishlist (
     item_id INTEGER NOT NULL,
     slot TEXT,
     acquired INTEGER NOT NULL DEFAULT 0,
+    note TEXT,  -- NEW
     FOREIGN KEY (character_id) REFERENCES characters(id) ON DELETE CASCADE,
     FOREIGN KEY (item_id) REFERENCES items(id) ON DELETE CASCADE
 );
@@ -33,5 +34,7 @@ CREATE TABLE IF NOT EXISTS preset_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     preset_id INTEGER NOT NULL,
     item_id INTEGER NOT NULL,
+    slot TEXT,  -- NEW
+    note TEXT,  -- NEW
     FOREIGN KEY (preset_id) REFERENCES presets(id)
 );

@@ -5,7 +5,7 @@
 <p>
   Account: <strong>{{ char['account_name'] }}</strong><br>
   Class: <span class="class-{{ char['class'] | lower }}">{{ char['class'] }}</span><br>
-  Spec: {{ char['spec'] }}<br>
+  Spec: {{ char['spec'] }}
 </p>
 
 <h2>Wishlist</h2>
@@ -30,7 +30,6 @@
 
   <div id="wishlist-results" style="margin-top:10px;"></div>
 
-  <!-- Hidden field stores the selected item ID -->
   <form id="wishlist-add-form" method="post" action="{{ url_for('wishlist.add_wishlist_item', char_id=char['id']) }}">
       <input type="hidden" name="item_id" id="wishlist-item-id">
   </form>
@@ -42,8 +41,8 @@
     <th>Item</th>
     <th>Dungeon</th>
     <th>Boss</th>
-    <th>Acquired</th>
-    <th>Delete</th>
+    <th>Note</th>
+    <th>Acquired / Delete</th>
   </tr>
 
   {% for w in wishlist %}
@@ -55,20 +54,49 @@
     <td>{{ w.dungeon }}</td>
     <td>{{ w.boss }}</td>
 
+    <!-- NOTE COLUMN -->
     <td>
-      <form method="post" action="{{ url_for('wishlist.toggle_wishlist', w_id=w.id) }}">
-        <button type="submit">{{ '✔️' if w.acquired else '⬜' }}</button>
+      <form method="post" action="{{ url_for('wishlist.update_wishlist_note', w_id=w.id) }}"
+            style="display:flex; gap:6px; align-items:center;">
+        <input type="hidden" name="char_id" value="{{ char.id }}">
+        <input type="text" name="note" value="{{ w.note or '' }}" placeholder="Add note..." style="flex:1;">
+        <button type="submit" class="icon-button save" title="Save">💾</button>
       </form>
     </td>
 
+    <!-- ACQUIRED + DELETE -->
     <td>
-      <form method="post" action="{{ url_for('wishlist.delete_wishlist_item', w_id=w.id) }}">
-        <button type="submit" onclick="return confirm('Delete this item?')">🗑️</button>
-      </form>
+      <div style="
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          gap:22px;
+          padding:4px 0;
+      ">
+
+        <!-- Toggle acquired -->
+        <form method="post" action="{{ url_for('wishlist.toggle_wishlist', w_id=w.id) }}">
+          <button type="submit" class="icon-button" title="Toggle">
+            {% if w.acquired %}
+              <span style="color:limegreen; font-size:22px;">✔</span>
+            {% else %}
+              <span style="font-size:22px;">⬜</span>
+            {% endif %}
+          </button>
+        </form>
+
+        <!-- Delete item -->
+        <form method="post" action="{{ url_for('wishlist.delete_wishlist_item', w_id=w.id) }}">
+          <button type="submit" class="icon-button" title="Delete" style="font-size:22px;">❌</button>
+        </form>
+
+      </div>
     </td>
+
   </tr>
   {% endfor %}
 </table>
+
 
 <script>
 const wsInput = document.getElementById('wishlist-search');

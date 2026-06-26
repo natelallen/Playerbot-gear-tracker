@@ -78,7 +78,7 @@ docker compose up -d
 ### Access it at:
 http://dockerhostip:5000
 
-Optional: You can place this behind Traefik, Nginx Proxy Manager, Caddy, etc. If you already use a reverse-proxy on self hosted applications I will assume you know how to set that up in compose. If for some reason other users have interest in using this application I might expand installation options / create a local executable version.
+Optional: You can place this behind Traefik, Nginx Proxy Manager, Caddy, etc. If you already use a reverse-proxy on self hosted applications I will assume you know how to set that up. If for some reason other users have interest in using this application I might expand installation options / create a local executable version.
 
 ## License
 This project is licensed under the MIT License.

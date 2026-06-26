@@ -72,7 +72,7 @@ def character_detail(char_id):
     char = cur.fetchone()
 
     cur.execute("""
-        SELECT id, slot, acquired, item_id
+        SELECT id, slot, acquired, item_id, note
         FROM wishlist
         WHERE character_id = ?
     """, (char_id,))
@@ -90,6 +90,7 @@ def character_detail(char_id):
             "id": w["id"],
             "slot": w["slot"],
             "acquired": w["acquired"],
+            "note": w["note"],
             "name": item.get("name"),
             "dungeon": item.get("dungeon"),
             "boss": item.get("boss"),

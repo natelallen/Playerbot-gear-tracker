@@ -4,6 +4,7 @@ from ..item_db import ITEM_DB
 
 wishlist_bp = Blueprint("wishlist", __name__)
 
+# Add item
 @wishlist_bp.route("/characters/<int:char_id>/wishlist/add", methods=["POST"])
 def add_wishlist_item(char_id):
     item_id = request.form["item_id"]
@@ -26,6 +27,25 @@ def add_wishlist_item(char_id):
     return redirect(url_for("characters.character_detail", char_id=char_id))
 
 
+# Wishlist note
+@wishlist_bp.route("/wishlist/<int:w_id>/note", methods=["POST"])
+def update_wishlist_note(w_id):
+    note = request.form.get("note", "").strip()
+    char_id = request.form.get("char_id")
+
+    conn = db()
+    conn.execute("""
+        UPDATE wishlist
+        SET note = ?
+        WHERE id = ?
+    """, (note, w_id))
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for("characters.character_detail", char_id=char_id))
+
+
+# Aquired button
 @wishlist_bp.route("/wishlist/<int:w_id>/toggle", methods=["POST"])
 def toggle_wishlist(w_id):
     conn = db()
@@ -43,6 +63,7 @@ def toggle_wishlist(w_id):
     return redirect(url_for("dashboard.dashboard"))
 
 
+# Delete item
 @wishlist_bp.route("/wishlist/<int:w_id>/delete", methods=["POST"])
 def delete_wishlist_item(w_id):
     conn = db()

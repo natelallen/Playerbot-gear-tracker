@@ -804,8 +804,8 @@
     "name": "Maiden's Circle",
     "slot": "Finger",
     "quality": "rare",
-    "dungeon": "Onyxia's Lair",
-    "boss": "Onyxia"
+    "dungeon": "World Drop",
+    "boss": "BoE"
   },
   "22818": {
     "id": 22818,
@@ -924,8 +924,8 @@
     "name": "Robe of the Archmage",
     "slot": "Chest",
     "quality": "epic",
-    "dungeon": "Tailoring",
-    "boss": null
+    "dungeon": "Crafting",
+    "boss": "Tailoring"
   },
   "21497": {
     "id": 21497,
@@ -4005,7 +4005,7 @@
     "slot": "Trinket",
     "quality": "rare",
     "dungeon": "Blackrock Depths",
-    "boss": "Emperor Dagran Thaurissan"
+    "boss": "General Angerforge"
   },
   "18693": {
     "id": 18693,
@@ -5374,14 +5374,6 @@
     "quality": "rare",
     "dungeon": "Blackrock Depths",
     "boss": "Emperor Dagran Thaurissan"
-  },
-  "12927": {
-    "id": 12927,
-    "name": "Dark Iron Shoulders",
-    "slot": "Shoulder",
-    "quality": "rare",
-    "dungeon": "Blacksmithing",
-    "boss": null
   },
   "16918": {
     "id": 16918,
@@ -8420,8 +8412,8 @@
     "name": "Master's Bracers",
     "slot": "Wrist",
     "quality": "uncommon",
-    "dungeon": "Onyxia's Lair",
-    "boss": "Onyxia"
+    "dungeon": "World Drop",
+    "boss": "BoE"
   },
   "13489": {
     "id": 13489,
@@ -10293,7 +10285,7 @@
     "slot": "Waist",
     "quality": "rare",
     "dungeon": "Scholomance",
-    "boss": null
+    "boss": "BoE"
   },
   "5266": {
     "id": 5266,
@@ -10501,7 +10493,7 @@
     "slot": "Chest",
     "quality": "rare",
     "dungeon": "Scholomance",
-    "boss": null
+    "boss": "Multiple"
   },
   "17011": {
     "id": 17011,
@@ -11460,8 +11452,8 @@
     "name": "Master's Cloak",
     "slot": "Back",
     "quality": "uncommon",
-    "dungeon": "Onyxia's Lair",
-    "boss": "Onyxia"
+    "dungeon": "World Drop",
+    "boss": "BoE"
   },
   "16964": {
     "id": 16964,
@@ -12540,5 +12532,145 @@
     "quality": "rare",
     "dungeon": "UBRS",
     "boss": "Warchief Rend Blackhand"
+  },
+  "12927": {
+    "name": "Truestrike Shoulders",
+    "slot": "Shoulder",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "Pyroguard Emberseer"
+  },
+  "13340": {
+    "name": "Cape of the Black Baron",
+    "slot": "Back",
+    "quality": "rare",
+    "dungeon": "Stratholme",
+    "boss": "Baron Rivendare"
+  },
+  "12936": {
+    "name": "Battleborn Armbraces",
+    "slot": "Wrist",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "Warchief Rend Blackhand"
+  },
+  "13959": {
+    "name": "Omokk's Girth Restrainer",
+    "slot": "Wrist",
+    "quality": "rare",
+    "dungeon": "Quest",
+    "boss": "Maxwell's Mission"
+  },
+  "15411": {
+    "name": "Mark of Fordring",
+    "slot": "Neck",
+    "quality": "rare",
+    "dungeon": "Quest",
+    "boss": "In Dreams"
+  },
+  "13098": {
+    "name": "Painweaver Band",
+    "slot": "Finger",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "General Drakkisath"
+  },
+  "13965": {
+    "name": "Blackhand's Breadth",
+    "slot": "Trinket",
+    "quality": "rare",
+    "dungeon": "Quest",
+    "boss": "General Drakkisath's Demise "
+  },
+  "12103": {
+    "name": "Star of Mystaria",
+    "slot": "Neck",
+    "quality": "rare",
+    "dungeon": "Stratholme (live)",
+    "boss": "Balnazzar"
+  },
+  "942": {
+    "name": "Freezing Band",
+    "slot": "Finger",
+    "quality": "epic",
+    "dungeon": "World Drop",
+    "boss": "BoE"
+  },
+  "12930": {
+    "name": "Briarwood Reed",
+    "slot": "Trinket",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "Jed Runewatcher (Rare)"
+  },
+  "13968": {
+    "name": "Eye of the Beast",
+    "slot": "Trinket",
+    "quality": "rare",
+    "dungeon": "Quest",
+    "boss": "General Drakkisath's Demise"
+  },
+  "11904": {
+    "name": "Spirit of Aquementas",
+    "slot": "Off Hand",
+    "quality": "uncommon",
+    "dungeon": "Quest",
+    "boss": "It's Dangerous to Go Alone"
+  },
+  "1111111": {
+    "name": "Bracers of Frozen Wrath",
+    "slot": "Wrist",
+    "quality": "uncommon",
+    "dungeon": "World Drops",
+    "boss": "BoE"
+  },
+  "2222222": {
+    "name": "Back of Frozen Wrath",
+    "slot": "Back",
+    "quality": "uncommon",
+    "dungeon": "World Drop",
+    "boss": "BoE"
+  },
+  "10430": {
+    "name": "Blackmist Armguards",
+    "slot": "Wrist",
+    "quality": "rare",
+    "dungeon": "UBRS",
+    "boss": "The Beast"
+  },
+  "12633": {
+    "name": "Whitesoul Helm",
+    "slot": "Head",
+    "quality": "rare",
+    "dungeon": "Crafting",
+    "boss": "Blacksmithing"
+  },
+  "55555555": {
+    "name": "Cloak of Healing",
+    "slot": "Back",
+    "quality": "uncommon",
+    "dungeon": "World Drop",
+    "boss": "BoE"
+  },
+  "13346": {
+    "name": "Robes of the Exalted",
+    "slot": "Chest",
+    "quality": "rare",
+    "dungeon": "Stratholme",
+    "boss": "Baron Rivendare"
+  },
+  "10787": {
+    "name": "Atal'ai Gloves",
+    "slot": "Hands",
+    "quality": "rare",
+    "dungeon": "\tThe Temple of Atal'Hakkar",
+    "boss": "Mini-Bosses"
+  },
+  "16058": {
+    "name": "Fordring's Seal",
+    "slot": "Finger",
+    "quality": "rare",
+    "dungeon": "Quest",
+    "boss": "In Dreams"
   }
 }
