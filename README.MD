@@ -64,7 +64,7 @@ Create a simple `docker-compose.yml`:
 ```yaml
 services:
   geartracker:
-    image: your-dockerhub-name/playerbot-gear-tracker:latest
+    image: ADDRESS/playerbot-gear-tracker:latest
     ports:
       - "5000:5000"
     volumes:
