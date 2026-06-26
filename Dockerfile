@@ -7,6 +7,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+COPY data/items_db.json /app/defaults/items_db.json
+
 RUN adduser --disabled-password appuser
 USER appuser
 
